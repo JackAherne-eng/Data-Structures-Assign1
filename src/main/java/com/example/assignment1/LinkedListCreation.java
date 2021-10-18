@@ -24,10 +24,10 @@ public class LinkedListCreation<C>  {
     }
     //Add other insertion, deletion, access, search, etc. methods too
 //Inner class approach.
-    class LLNode<N> {
-        public LLNode<N> next=null;
-        private N contents; //ADT reference!
-        public N getContents() { return contents; }
-        public void setContents(N c) { contents=c; }
+    class LLNode<C> {
+        public LLNode<C> next=null;
+        private C contents; //ADT reference!
+        public C getContents() { return contents; }
+        public void setContents(C c) { contents=c; }
     }
 }
