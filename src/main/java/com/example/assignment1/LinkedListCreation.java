@@ -11,7 +11,41 @@ public class LinkedListCreation<C>  {
         lln.next=head;
         head=lln;
     }
-    public void clear() { //Empty list
+
+    public int size() {
+        LLNode<C> temp=head;
+        int digit = 0;
+        while(temp != null){
+            temp = temp.next;
+            digit++;
+        }
+        return digit;
+    }
+
+    public C get(int index) {
+        LLNode<C> temp=head;
+        for(int i = 0; i < index; i++){
+            temp = temp.next;
+        }
+        return temp.getContents();
+    }
+
+    public void remove(int index){
+        index=size()-index-1;
+
+        if(index == 0){
+            head = head.next;
+        }
+        else {
+            LLNode<C> temp=head;
+            for(int i = 0; i < index; i++){
+                temp = temp.next;
+            }
+            temp.next = temp.next.next;
+        }
+    }
+
+    public void clear() {
         head=null;
     }
 
