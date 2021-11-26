@@ -1,6 +1,4 @@
 package com.example.assignment1;
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class LinkedListCreation<C>  {
     public LLNode<C> head=null;
@@ -22,7 +20,7 @@ public class LinkedListCreation<C>  {
         return digit;
     }
 
-    public C get(int index) {
+    public C get(int index) {                   //return a generic object
         LLNode<C> temp=head;
         for(int i = 0; i < index; i++){
             temp = temp.next;
@@ -44,6 +42,10 @@ public class LinkedListCreation<C>  {
             temp.next = temp.next.next;
         }
     }
+
+    /*public C search(){                          //return a generic object
+    }*/
+
 
     public void clear() {
         head=null;

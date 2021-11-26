@@ -1,15 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment1.VaccinationCenterController">
-   <children>
-      <Button layoutX="281.0" layoutY="78.0" mnemonicParsing="false" onMouseClicked="#AddButton" text="Add" />
-      <TextField fx:id="Textbox" layoutX="226.0" layoutY="110.0" />
-      <ListView fx:id="ListView" layoutX="172.0" layoutY="200.0" prefHeight="197.0" prefWidth="268.0" />
-   </children>
-</AnchorPane>
+<TabPane prefHeight="782.0" prefWidth="1063.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment1.VaccinationCenterController">
+  <tabs>
+    <Tab text="Untitled Tab 1">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="753.0" prefWidth="1098.0">
+               <children>
+                  <Button layoutX="32.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#AddButton" prefHeight="39.0" prefWidth="71.0" text="Confirm">
+                     <font>
+                        <Font name="Cambria" size="12.0" />
+                     </font>
+                  </Button>
+                  <ListView fx:id="ListView" layoutX="687.0" layoutY="-1.0" prefHeight="718.0" prefWidth="361.0" />
+                  <GridPane layoutX="22.0" layoutY="55.0" prefHeight="226.0" prefWidth="651.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Name">
+                           <font>
+                              <Font name="Cambria" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="Address" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Cambria" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="Eircode" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Cambria" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="Parking Spaces" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Cambria" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="vcname" GridPane.columnIndex="1" />
+                        <TextField fx:id="vcaddress" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="vceircode" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="vcspace" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Untitled Tab 2">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
