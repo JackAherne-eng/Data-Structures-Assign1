@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
@@ -12,23 +13,17 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <TabPane prefHeight="782.0" prefWidth="1063.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment1.VaccinationCenterController">
   <tabs>
-    <Tab text="Untitled Tab 1">
+    <Tab text="Vaccination Center">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="753.0" prefWidth="1098.0">
                <children>
-                  <Button layoutX="32.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#AddButton" prefHeight="39.0" prefWidth="71.0" text="Confirm">
-                     <font>
-                        <Font name="Cambria" size="12.0" />
-                     </font>
-                  </Button>
-                  <ListView fx:id="ListView" layoutX="687.0" layoutY="-1.0" prefHeight="718.0" prefWidth="361.0" />
-                  <GridPane layoutX="22.0" layoutY="55.0" prefHeight="226.0" prefWidth="651.0">
+                  <ListView fx:id="vcView" layoutX="702.0" layoutY="35.0" prefHeight="718.0" prefWidth="361.0" />
+                  <GridPane layoutX="30.0" layoutY="231.0" prefHeight="226.0" prefWidth="456.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="321.0" minWidth="10.0" prefWidth="199.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="505.0" minWidth="10.0" prefWidth="389.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -63,13 +58,64 @@
                         <TextField fx:id="vcspace" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
+                  <Label layoutX="80.0" layoutY="94.0" prefHeight="67.0" prefWidth="566.0" text="Please create your Vaccination Center" textAlignment="CENTER" textFill="#32bfa8" textOverrun="WORD_ELLIPSIS">
+                     <font>
+                        <Font name="Calibri Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="80.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#createVC" prefHeight="70.0" prefWidth="106.0" text="ADD" />
+                  <Button layoutX="269.0" layoutY="563.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="106.0" text="EDIT" />
+                  <Button layoutX="458.0" layoutY="563.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="106.0" text="REMOVE" />
                </children>
             </AnchorPane>
       </content>
     </Tab>
-    <Tab text="Untitled Tab 2">
+    <Tab text="Booth">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ComboBox fx:id="VCselect" layoutX="206.0" layoutY="182.0" prefHeight="34.0" prefWidth="232.0" promptText="Select Vaccination Center" />
+                  <GridPane layoutX="35.0" layoutY="231.0" prefHeight="200.0" prefWidth="487.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="126.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="361.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Identifier">
+                           <font>
+                              <Font name="Cambria" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="Floor Level" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Cambria" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="Accessibility" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Cambria" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="indentifier" GridPane.columnIndex="1" />
+                        <TextField fx:id="floorLevel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="accessibility" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <Button layoutX="80.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#createBooth" prefHeight="70.0" prefWidth="106.0" text="ADD" />
+                  <Button layoutX="459.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#rvmBooth" prefHeight="70.0" prefWidth="106.0" text="REMOVE" />
+                  <Button layoutX="249.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#listBooth" prefHeight="70.0" prefWidth="146.0" text="LIST BOOTHS" />
+                  <Label layoutX="35.0" layoutY="100.0" prefHeight="50.0" prefWidth="667.0" text="Please create your Vaccination Center Booth" textAlignment="CENTER" textFill="#32bfa8" textOverrun="WORD_ELLIPSIS">
+                     <font>
+                        <Font name="Calibri Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="boothView" layoutX="702.0" layoutY="37.0" prefHeight="718.0" prefWidth="361.0" />
+               </children></AnchorPane>
       </content>
     </Tab>
   </tabs>

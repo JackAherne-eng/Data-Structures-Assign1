@@ -6,6 +6,7 @@ public class VaccinationCenterInfo {
     private String address;
     private String eircode;
     private int p_space;
+    private LinkedListCreation<Booth> listB = new LinkedListCreation<>();
 
 
     public VaccinationCenterInfo(String name, String address, String eircode, int p_space){
@@ -36,6 +37,10 @@ public class VaccinationCenterInfo {
         return p_space;
     }
 
+    public LinkedListCreation<Booth> getListB() {
+        return listB;
+    }
+
     public void setEircode(String eircode) {
         this.eircode = eircode;
     }
@@ -52,8 +57,7 @@ public class VaccinationCenterInfo {
         this.p_space = p_space;
     }
 
-    //name
-    //address
-    //eircode
-    //parking spaces
+    public void setListB(LinkedListCreation<Booth> listB) {
+        this.listB = listB;
+    }
 }
