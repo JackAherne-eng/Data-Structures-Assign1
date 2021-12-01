@@ -32,6 +32,14 @@ public class VaccinationCenterController {
     private ListView<String> vcView;
 
     public void createVC(MouseEvent mouseEvent) {
+        if(!Utilities.validEircode(vceircode.getText())){
+            return;
+        }
+        for(int i = VaccinationCenterApplication.VCList.size() - 1; i >= 0; i--){
+            if(VaccinationCenterApplication.VCList.get(i).getEircode().startsWith(vceircode.getText().substring(0,3))){
+                return;
+            }
+        }
         VaccinationCenterInfo v;                   // extends objects of type VaccinationCenterInfo
         vcView.getItems().addAll(vcname.getText() + ", " + vcaddress.getText() + ", " + vceircode.getText() + ", " + vcspace.getText());
         VaccinationCenterApplication.VCList.addElement(v = new VaccinationCenterInfo(vcname.getText(), vcaddress.getText(), vceircode.getText(), Integer.parseInt(vcspace.getText())));
