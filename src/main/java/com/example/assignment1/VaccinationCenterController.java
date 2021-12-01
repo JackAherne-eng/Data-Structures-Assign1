@@ -50,6 +50,14 @@ public class VaccinationCenterController {
     }
 
     public void createBooth(MouseEvent mouseEvent) {
+        if(!Utilities.validIdentifier(indentifier.getText())){
+            return;
+        }
+        for(int i = VaccinationCenterApplication.boothList.size() - 1; i >= 0; i--){
+            if(VaccinationCenterApplication.boothList.get(i).getIdentifier().equals(indentifier.getText())){
+                return;
+            }
+        }
         Booth b;
         VaccinationCenterInfo v = VaccinationCenterApplication.VCList.search(vaccinationCenterInfo -> vaccinationCenterInfo.getName().equals(VCselect.getValue().toString()));
         System.out.println(v.getName());
@@ -66,5 +74,9 @@ public class VaccinationCenterController {
         for(int i = v.getListB().size() - 1; i >= 0; i --){
             boothView.getItems().addAll(VCselect.getValue().toString() + ": " + v.getListB().get(i).getIdentifier() + ", " + v.getListB().get(i).getFloor() + ", " + v.getListB().get(i).getAccessibility());
         }
+    }
+
+    public void clearVC(MouseEvent mouseEvent) {
+        VaccinationCenterApplication.VCList.clear();
     }
 }

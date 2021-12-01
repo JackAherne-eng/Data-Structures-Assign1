@@ -17,7 +17,7 @@
   <tabs>
     <Tab text="Vaccination Center">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="753.0" prefWidth="1098.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" onMouseClicked="#clearVC" prefHeight="753.0" prefWidth="1098.0">
                <children>
                   <ListView fx:id="vcView" layoutX="702.0" layoutY="35.0" prefHeight="718.0" prefWidth="361.0" />
                   <GridPane layoutX="30.0" layoutY="231.0" prefHeight="226.0" prefWidth="456.0">
@@ -66,6 +66,7 @@
                   <Button layoutX="80.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#createVC" prefHeight="70.0" prefWidth="106.0" text="ADD" />
                   <Button layoutX="269.0" layoutY="563.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="106.0" text="EDIT" />
                   <Button layoutX="458.0" layoutY="563.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="106.0" text="REMOVE" />
+                  <Button layoutX="269.0" layoutY="669.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="106.0" text="CLEAR" />
                </children>
             </AnchorPane>
       </content>
