@@ -32,14 +32,14 @@ public class LinkedListCreation<C>  {
     }
 
     public void remove(int index){
-        index=size()-index-1;
+        index = size()-index - 1;
 
         if(index == 0){
             head = head.next;
         }
         else {
             LLNode<C> temp=head;
-            for(int i = 0; i < index; i++){
+            for(int i = 0; i < index - 1; i++){
                 temp = temp.next;
             }
             temp.next = temp.next.next;
@@ -64,7 +64,7 @@ public class LinkedListCreation<C>  {
         while (temp != null && !o.test((temp.getContents()))){
             temp = temp.next;
         }
-        return temp!=null ? temp.getContents() : null;  // '?' Is a fancy if else
+        return temp!=null ? temp.getContents() : null;  // '?' Is a fancy 'if else'
     }
 
     public void clear() {

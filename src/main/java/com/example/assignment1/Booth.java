@@ -5,6 +5,7 @@ public class Booth {
     private String identifier;
     private String floor;
     private String accessibility;
+    private LinkedListCreation<Appointment> listA = new LinkedListCreation<>();
 
     public Booth(String identifier, String floor, String accessibility){
 
@@ -14,6 +15,11 @@ public class Booth {
 
         this.accessibility = accessibility;
 
+
+    }
+
+    public LinkedListCreation<Appointment> getListA() {
+        return listA;
     }
 
     public String getIdentifier() {
@@ -38,5 +44,9 @@ public class Booth {
 
     public void setAccessibility(String accessibility) {
         this.accessibility = accessibility;
+    }
+
+    public void setListA(LinkedListCreation<Appointment> listA) {
+        this.listA = listA;
     }
 }
