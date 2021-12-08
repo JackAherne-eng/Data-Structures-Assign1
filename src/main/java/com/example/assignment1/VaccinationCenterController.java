@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
+import java.io.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 
@@ -38,6 +39,10 @@ public class VaccinationCenterController {
     @FXML
     public Label PPSText;
     @FXML
+    public Tab tabApp;
+    @FXML
+    public Tab tabRec;
+    @FXML
     public DatePicker aDate;
     @FXML
     private DatePicker pDoB;
@@ -54,6 +59,8 @@ public class VaccinationCenterController {
     @FXML
     public ComboBox<Object> boothSelect;
     @FXML
+    public ListView<String> recordView;
+    @FXML
     public ListView<String> appointmentView;
     @FXML
     private ListView<String> patientView;
@@ -66,6 +73,8 @@ public class VaccinationCenterController {
         pAccess.getItems().addAll("Yes" , "No");
         aType.getItems().addAll("BioNTech & Pfizer" , "Johnson & Johnson" , "Moderna" , "Oxford AstraZeneca" , "Gamaleya (Sputnik V)");
         aTime.getItems().addAll("9:00-9:30" , "9:30-10:00" , "10:00-10:30" , "10:30-11:00" , "11:00-11:30" , "11:30-12:00" , "12:00-12:30" , "12:30-13:00" , "13:00-13:30" , "13:30-14:00" , "14:00-14:30" , "14:30-15:00");
+        tabApp.setDisable(true);
+        tabRec.setDisable(true);
     }
 
     public void createVC(MouseEvent mouseEvent) {
@@ -91,6 +100,10 @@ public class VaccinationCenterController {
 
     public void clearVC(MouseEvent mouseEvent) {
         VaccinationCenterApplication.VCList.clear();
+        VaccinationCenterApplication.boothList.clear();
+        VaccinationCenterApplication.AppointmentList.clear();
+        VaccinationCenterApplication.patientList.clear();
+        VaccinationCenterApplication.RecordList.clear();
     }
 
     public void createBooth(MouseEvent mouseEvent) {
@@ -138,10 +151,11 @@ public class VaccinationCenterController {
         for(int i = VaccinationCenterApplication.patientList.size() - 1; i >= 0; i --) {
             patientSelect.getItems().addAll(VaccinationCenterApplication.patientList.get(i).getName());
         }
+        tabApp.setDisable(false);
+        tabRec.setDisable(false);
     }
 
     public void createAppointment(MouseEvent mouseEvent) {
-
         Appointment a;
         Patient p = VaccinationCenterApplication.patientList.search(patient -> patient.getName().equals(patientSelect.getValue().toString()));
         Booth b = VaccinationCenterApplication.boothList.search(booth -> booth.getIdentifier().equals(boothSelect.getValue().toString()));
@@ -174,5 +188,36 @@ public class VaccinationCenterController {
         for(int i = p.getListA().size() - 1; i >= 0; i --){
             appointmentView.getItems().addAll(patientSelect.getValue().toString() + ": " + p.getListA().get(i).getDate() + ", " + p.getListA().get(i).getTime() + ", " + p.getListA().get(i).getType() + ", " + p.getListA().get(i).getbNum() + ", " + p.getListA().get(i).getDetails() + ", " + p.getListA().get(i).getPPS());
         }
+    }
+
+
+    public void submitApp(MouseEvent mouseEvent) {
+        Record r;
+        Patient p = VaccinationCenterApplication.patientList.search(patient -> patient.getName().equals(patientSelect.getValue().toString()));
+        Appointment a = VaccinationCenterApplication.AppointmentList.search(appointment -> appointment.getPPS().equals(PPSText.getText()));
+        p.getListRec().addElement(r = new Record(a.getPPS(), a.getDate(), a.getType()));
+        VaccinationCenterApplication.RecordList.addElement(r);
+        recordView.getItems().addAll(a.getPPS() + ", " + a.getDate() + ", " + a.getType());
+        int selectedID = appointmentView.getSelectionModel().getSelectedIndex();
+        appointmentView.getItems().remove(selectedID);
+        p.getListA().remove(selectedID);
+        for(int i = p.getListA().size() - 1 ;i >= 0; i--){
+            System.out.println(p.getListA().get(i).getDate());
+        }
+    }
+
+    public void Save(MouseEvent mouseEvent) throws IOException {
+        FileOutputStream save = new FileOutputStream("Database.dat");
+        ObjectOutputStream objectout = new ObjectOutputStream(save);
+        objectout.writeObject(VaccinationCenterApplication.VCList);
+        save.close();
+    }
+
+    public void Load(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
+        FileInputStream load = new FileInputStream("Database.dat");
+        ObjectInputStream objectout = new ObjectInputStream(load);
+        //VaccinationCenterApplication.patientList= ()
+        VaccinationCenterApplication.VCList = (LinkedListCreation<VaccinationCenterInfo>) objectout.readObject();
+        load.close();
     }
 }

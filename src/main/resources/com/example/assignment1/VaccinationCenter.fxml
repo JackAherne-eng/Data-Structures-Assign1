@@ -68,7 +68,8 @@
                   <Button layoutX="80.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#createVC" prefHeight="70.0" prefWidth="106.0" text="ADD" />
                   <Button layoutX="269.0" layoutY="563.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="106.0" text="EDIT" />
                   <Button layoutX="458.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#rvmVC" prefHeight="70.0" prefWidth="106.0" text="REMOVE" />
-                  <Button layoutX="269.0" layoutY="669.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="106.0" text="CLEAR" />
+                  <Button layoutX="186.0" layoutY="669.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="106.0" text="CLEAR" />
+                  <Button layoutX="363.0" layoutY="669.0" mnemonicParsing="false" onMouseClicked="#Load" prefHeight="70.0" prefWidth="106.0" text="LOAD" />
                </children>
             </AnchorPane>
       </content>
@@ -188,7 +189,7 @@
             </AnchorPane>
         </content>
       </Tab>
-      <Tab text="Appointment">
+      <Tab fx:id="tabApp" text="Appointment">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -264,7 +265,23 @@
                   <ComboBox fx:id="boothSelect" layoutX="393.0" layoutY="202.0" prefHeight="34.0" prefWidth="139.0" promptText="Select Booth" />
                   <Button layoutX="511.0" layoutY="443.0" mnemonicParsing="false" onMouseClicked="#refreshPPS" text="Refresh" textAlignment="RIGHT" />
                   <Button layoutX="372.0" layoutY="513.0" mnemonicParsing="false" onMouseClicked="#rvmApp" prefHeight="70.0" prefWidth="106.0" text="REMOVE" />
-                  <Button layoutX="202.0" layoutY="583.0" mnemonicParsing="false" onMouseClicked="#listApp" prefHeight="70.0" prefWidth="146.0" text="LIST APPOINTMENT" />
+                  <Button layoutX="202.0" layoutY="548.0" mnemonicParsing="false" onMouseClicked="#listApp" prefHeight="70.0" prefWidth="146.0" text="LIST APPOINTMENT" />
+                  <Button layoutX="202.0" layoutY="645.0" mnemonicParsing="false" onMouseClicked="#submitApp" prefHeight="70.0" prefWidth="146.0" text="SUBMIT" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="tabRec" text="Record">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ListView fx:id="recordView" layoutX="742.0" layoutY="253.0" prefHeight="493.0" prefWidth="321.0" />
+                  <Label layoutX="372.0" layoutY="60.0" prefHeight="50.0" prefWidth="322.0" text="Vaccination Records" textAlignment="CENTER" textFill="#32bfa8" textOverrun="WORD_ELLIPSIS">
+                     <font>
+                        <Font name="Calibri Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="226.0" layoutY="650.0" mnemonicParsing="false" onMouseClicked="#Save" prefHeight="70.0" prefWidth="146.0" text="SAVE" />
                </children>
             </AnchorPane>
         </content>

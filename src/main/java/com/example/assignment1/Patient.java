@@ -9,6 +9,7 @@ public class Patient {
     private String email;
     private String accRelate;
     private LinkedListCreation<Appointment> listA = new LinkedListCreation<>();
+    private LinkedListCreation<Record> listRec = new LinkedListCreation<>();
 
     public Patient(String name, int phoneNum, String doB, String email, String PPS, String accRelate){
 
@@ -27,6 +28,10 @@ public class Patient {
 
     public LinkedListCreation<Appointment> getListA() {
         return listA;
+    }
+
+    public LinkedListCreation<Record> getListRec() {
+        return listRec;
     }
 
     public String getName() { return name; }
@@ -58,6 +63,10 @@ public class Patient {
 
     public void setPPS(String PPS) {
         this.PPS = PPS;
+    }
+
+    public void setListRec(LinkedListCreation<Record> listRec) {
+        this.listRec = listRec;
     }
 
     public void setDoB(String doB) {
