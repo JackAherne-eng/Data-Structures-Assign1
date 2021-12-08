@@ -1,6 +1,8 @@
 package com.example.assignment1;
 
-public class Booth {
+import java.io.Serializable;
+
+public class Booth implements Serializable {
 
     private String identifier;
     private String floor;

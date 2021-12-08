@@ -1,6 +1,8 @@
 package com.example.assignment1;
 
-public class Record {
+import java.io.Serializable;
+
+public class Record implements Serializable {
 
     private String PPS;
     private String date;

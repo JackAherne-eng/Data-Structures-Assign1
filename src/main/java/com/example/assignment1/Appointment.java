@@ -1,6 +1,8 @@
 package com.example.assignment1;
 
-public class Appointment {
+import java.io.Serializable;
+
+public class Appointment implements Serializable {
 
     private String date;
     private String time;
@@ -8,7 +10,6 @@ public class Appointment {
     private String bNum;
     private String details;
     private String PPS;
-
 
     public Appointment(String date, String time, String type, String bNum, String details, String PPS){
 
@@ -39,6 +40,8 @@ public class Appointment {
 
 
     public String getPPS() {return PPS;}
+
+
 
     public void setDate(String date) {this.date = date;}
 

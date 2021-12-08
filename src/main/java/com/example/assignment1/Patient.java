@@ -1,6 +1,8 @@
 package com.example.assignment1;
 
-public class Patient {
+import java.io.Serializable;
+
+public class Patient implements Serializable {
 
     private String name;
     private String PPS;

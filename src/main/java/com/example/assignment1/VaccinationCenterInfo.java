@@ -1,6 +1,8 @@
 package com.example.assignment1;
 
-public class VaccinationCenterInfo {
+import java.io.Serializable;
+
+public class VaccinationCenterInfo implements Serializable {
 
     private String name;
     private String address;

@@ -1,9 +1,10 @@
 package com.example.assignment1;
 
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.function.Predicate;
 
-public class LinkedListCreation<C>  {
+public class LinkedListCreation<C> implements Serializable {
     public LLNode<C> head=null;
 
     public void addElement(C e) { //Add element to head of list
@@ -46,15 +47,6 @@ public class LinkedListCreation<C>  {
         }
     }
 
-   /* public C search(Comparator<C> o){
-        LLNode<C> temp = head;
-
-        while (temp != null && !o.equals((temp.getContents()))){
-            temp = temp.next;
-        }
-        return temp!=null ? temp.getContents() : null;  // '?' Is a fancy if else
-    }*/
-
     /*Moses Ugwulo
      Predicate Interface Documentation https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html*/
 
@@ -71,16 +63,10 @@ public class LinkedListCreation<C>  {
         head=null;
     }
 
-    public void deleteToLinkedList() {
 
-    }
-
-    public void getLinkedList() {
-
-    }
     //Add other insertion, deletion, access, search, etc. methods too
 //Inner class approach.
-    class LLNode<C> {
+    class LLNode<C> implements Serializable {
         public LLNode<C> next=null;
         private C contents; //ADT reference!
         public C getContents() { return contents; }

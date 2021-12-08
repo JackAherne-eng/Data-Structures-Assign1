@@ -67,9 +67,9 @@
                   </Label>
                   <Button layoutX="80.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#createVC" prefHeight="70.0" prefWidth="106.0" text="ADD" />
                   <Button layoutX="269.0" layoutY="563.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="106.0" text="EDIT" />
-                  <Button layoutX="458.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#rvmVC" prefHeight="70.0" prefWidth="106.0" text="REMOVE" />
                   <Button layoutX="186.0" layoutY="669.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="106.0" text="CLEAR" />
                   <Button layoutX="363.0" layoutY="669.0" mnemonicParsing="false" onMouseClicked="#Load" prefHeight="70.0" prefWidth="106.0" text="LOAD" />
+                  <Button layoutX="532.0" layoutY="669.0" mnemonicParsing="false" onMouseClicked="#RefreshVC" prefHeight="70.0" prefWidth="106.0" text="REFRESH" />
                </children>
             </AnchorPane>
       </content>
@@ -111,7 +111,6 @@
                      </children>
                   </GridPane>
                   <Button layoutX="80.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#createBooth" prefHeight="70.0" prefWidth="106.0" text="ADD" />
-                  <Button layoutX="459.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#rvmBooth" prefHeight="70.0" prefWidth="106.0" text="REMOVE" />
                   <Button layoutX="249.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#listBooth" prefHeight="70.0" prefWidth="146.0" text="LIST BOOTHS" />
                   <Label layoutX="35.0" layoutY="60.0" prefHeight="50.0" prefWidth="667.0" text="Please create your Vaccination Center Booth" textAlignment="CENTER" textFill="#32bfa8" textOverrun="WORD_ELLIPSIS">
                      <font>
